@@ -54,7 +54,7 @@ class ServerCommunicator():
             # don't let the user ctrl-c while we're waiting for a response
             try:
                 for idx in range(0,4): # 0, 1, 2, 3
-                    if self.connection.poll(5):
+                    if self.connection.poll(30):
                         return self.connection.recv()
                     else:
                         bb.warn("Timeout while attempting to communicate with bitbake server")
